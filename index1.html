@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 110px;
+            border-radius: 10px;
+            height: 30px;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Age Calculator</h1>
+    <input  type="text" placeholder="Date"> <input type="text" placeholder="Month"> <input type="text" placeholder="Year">
+    <br><br><button onclick="getage">Get Age </button>
+    <script>
+function getage() {
+    document.getElementById(output).innerHTML()
+    console.log(getage)
+}
+    </script> -->
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+    <input id="dateInput" type="text" placeholder="Date"> 
+    <input id="monthInput" type="text" placeholder="Month"> 
+    <input id="yearInput" type="text" placeholder="Year">
+    <br><br>
+    <button onclick="getAge()">Get Age</button>
+    <br><br>
+    <div id="output"></div>
+
+    <script>
+        function getAge() {
+            var date = document.getElementById("dateInput").value;
+            var month = document.getElementById("monthInput").value;
+            var year = document.getElementById("yearInput").value;
+//age calculate
+            var currentDate = new Date();
+            var birthDate = new Date(year, month - 1, date);
+            var age = currentDate.getFullYear() - birthDate.getFullYear();
+            var monthDiff = currentDate.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && currentDate.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            document.getElementById("output").innerHTML = "Your age is: " + age;
+        }
+    </script>
+</body>
+</html>
+
+</body>
+</html>
